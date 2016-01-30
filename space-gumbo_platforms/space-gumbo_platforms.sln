@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{D7C1EC6F-A1EE-4A48-942E-FF84DF4B64F0}") = "space-gumbo_platforms", "Assembly-CSharp.csproj", "{D809257C-35C7-05A4-4F72-103B738CABC9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D809257C-35C7-05A4-4F72-103B738CABC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D809257C-35C7-05A4-4F72-103B738CABC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D809257C-35C7-05A4-4F72-103B738CABC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D809257C-35C7-05A4-4F72-103B738CABC9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

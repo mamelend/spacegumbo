@@ -3,7 +3,7 @@ using System.Collections;
 
 
 [RequireComponent (typeof (Controller2D))]
-public class Player : MonoBehaviour {
+public class Player2 : MonoBehaviour {
 
 
 
@@ -30,17 +30,26 @@ public class Player : MonoBehaviour {
 
 	void Update() {
 
+		float directionX = 0;
+
 		if (controller.collisions.above || controller.collisions.below) {
 			velocity.y = 0;
 		}
 
-		Vector2 input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical")); //gets inputs
 
-		if (Input.GetKeyDown (KeyCode.UpArrow) && controller.collisions.below) {
+		/* SET CONTROLS HERE */
+		if (Input.GetKey (KeyCode.A)) {
+			directionX = -1;
+		}
+		if (Input.GetKey (KeyCode.D)) {
+			directionX = 1;
+		}
+			
+		if (Input.GetKeyDown (KeyCode.W) && controller.collisions.below) {
 			velocity.y = jumpVelocity;
 		}
 
-		float targetVelocityX = input.x * moveSpeed;  //target speed
+		float targetVelocityX = directionX * moveSpeed;  //target speed
 		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelTimeGround:accelTimeAir); //ramps up to target speed
 		velocity.y += gravity * Time.deltaTime;
 		controller.Move (velocity * Time.deltaTime);
