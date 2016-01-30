@@ -18,6 +18,8 @@ public class Player1 : MonoBehaviour {
 	Vector3 velocity;
 	float velocityXSmoothing;
 
+	Animator anim;
+
 
 	Controller2D controller;
 
@@ -26,6 +28,8 @@ public class Player1 : MonoBehaviour {
 
 		gravity = -(2 * jumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		jumpVelocity = Mathf.Abs (gravity * timeToJumpApex);
+
+		anim = GetComponent<Animator> ();
 	}
 
 	void Update() {
@@ -36,7 +40,6 @@ public class Player1 : MonoBehaviour {
 			velocity.y = 0;
 		}
 
-
 		/* SET CONTROLS HERE */
 		if (Input.GetKey (KeyCode.LeftArrow)) {
 			directionX = -1;
@@ -44,7 +47,7 @@ public class Player1 : MonoBehaviour {
 		if (Input.GetKey (KeyCode.RightArrow)) {
 			directionX = 1;
 		}
-			
+
 		if (Input.GetKeyDown (KeyCode.UpArrow) && controller.collisions.below) {
 			velocity.y = jumpVelocity;
 		}
@@ -52,6 +55,17 @@ public class Player1 : MonoBehaviour {
 		float targetVelocityX = directionX * moveSpeed;  //target speed
 		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelTimeGround:accelTimeAir); //ramps up to target speed
 		velocity.y += gravity * Time.deltaTime;
+
+		anim.SetFloat ("Speed", Mathf.Abs(directionX)); //animate
+
+		if (!controller.collisions.below) {
+			anim.SetBool ("Airborne", true);
+		} else {
+			anim.SetBool ("Airborne", false);
+		}
+
+
 		controller.Move (velocity * Time.deltaTime);
 	}
 }
+

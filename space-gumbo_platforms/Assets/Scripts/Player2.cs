@@ -18,6 +18,8 @@ public class Player2 : MonoBehaviour {
 	Vector3 velocity;
 	float velocityXSmoothing;
 
+	Animator anim;
+
 
 	Controller2D controller;
 
@@ -26,6 +28,8 @@ public class Player2 : MonoBehaviour {
 
 		gravity = -(2 * jumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		jumpVelocity = Mathf.Abs (gravity * timeToJumpApex);
+
+		anim = GetComponent<Animator> ();
 	}
 
 	void Update() {
@@ -52,6 +56,16 @@ public class Player2 : MonoBehaviour {
 		float targetVelocityX = directionX * moveSpeed;  //target speed
 		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelTimeGround:accelTimeAir); //ramps up to target speed
 		velocity.y += gravity * Time.deltaTime;
+
+		anim.SetFloat ("SpeedP2", Mathf.Abs(directionX)); //animate
+
+		if (!controller.collisions.below) {
+			anim.SetBool ("AirborneP2", true);
+		} else {
+			anim.SetBool ("AirborneP2", false);
+		}
+
+
 		controller.Move (velocity * Time.deltaTime);
 	}
 }
