@@ -18,7 +18,7 @@ public class Player1 : MonoBehaviour {
 	Vector3 velocity;
 	float velocityXSmoothing;
 
-	private bool isHolding = false;
+	public bool isHolding = false;
 	private int maPoints = 0;
 	private bool isAirborne = false;
 

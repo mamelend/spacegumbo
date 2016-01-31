@@ -11,6 +11,7 @@ public class playerAttack2 : MonoBehaviour {
 	public Collider2D attackTrigger2;
 
 	private Animator anim;
+	public Player2 player2;
 
 	void Awake()
 	{
@@ -21,7 +22,7 @@ public class playerAttack2 : MonoBehaviour {
 
 	void Update()
 	{
-		if (Input.GetKeyDown ("f") && !attacking) {
+		if (Input.GetKeyDown ("f") && !attacking && player2.isHolding == false) {
 			attacking = true;
 			attackTimer = attackCoolDown;
 

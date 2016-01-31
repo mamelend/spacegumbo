@@ -18,7 +18,7 @@ public class Player2 : MonoBehaviour {
 	Vector3 velocity;
 	float velocityXSmoothing;
 
-	private bool isHolding = false;
+	public bool isHolding = false;
 	private int maPoints = 0;
 	private bool isAirborne = false;
 
@@ -27,7 +27,6 @@ public class Player2 : MonoBehaviour {
 	private AudioSource source;
 
 	Animator anim;
-
 
 	Controller2D controller;
 
