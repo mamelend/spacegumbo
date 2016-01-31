@@ -4,7 +4,7 @@ using System.Collections;
 
 public class TimeyWimey : MonoBehaviour
 {
-	float timeLeft = 10.0f;
+	float timeLeft = 76.0f;
 
 	public Text TimeyTexty;
 
@@ -30,7 +30,7 @@ public class TimeyWimey : MonoBehaviour
 		timeLeft -= Time.deltaTime;
 //		TimeyTexty.text = "Time Left: " + Mathf.Round(timeLeft);
 //		countText.text = "Count: " + count.ToString ();
-		TimeyTexty.text = "Hurry only " + Mathf.Round(timeLeft) + " seconds left!!!";
+		TimeyTexty.text = Mathf.Round(timeLeft) + " seconds left!!!";
 		if(timeLeft < 0)
 		{
 			Application.LoadLevel("Opening");
