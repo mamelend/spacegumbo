@@ -20,6 +20,11 @@ public class Player2 : MonoBehaviour {
 
 	private bool isHolding = false;
 	private int maPoints = 0;
+	private bool isAirborne = false;
+
+	public AudioClip jumpSound;
+	public AudioClip landSound;
+	private AudioSource source;
 
 	Animator anim;
 
@@ -31,6 +36,8 @@ public class Player2 : MonoBehaviour {
 
 		gravity = -(2 * jumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		jumpVelocity = Mathf.Abs (gravity * timeToJumpApex);
+
+		source = GetComponent<AudioSource> ();
 
 		anim = GetComponent<Animator> ();
 	}
@@ -46,14 +53,17 @@ public class Player2 : MonoBehaviour {
 
 		/* SET CONTROLS HERE */
 		if (Input.GetKey (KeyCode.A)) {
-			directionX = -1;
+			transform.localRotation = Quaternion.Euler(0, 180, 0);
+			directionX = 1;
 		}
 		if (Input.GetKey (KeyCode.D)) {
 			directionX = 1;
+			transform.localRotation = Quaternion.Euler(0, 0, 0);
 		}
 			
 		if (Input.GetKeyDown (KeyCode.W) && controller.collisions.below) {
 			velocity.y = jumpVelocity;
+			source.PlayOneShot (jumpSound);
 		}
 
 		float targetVelocityX = directionX * moveSpeed;  //target speed
@@ -64,8 +74,13 @@ public class Player2 : MonoBehaviour {
 
 		if (!controller.collisions.below) {
 			anim.SetBool ("AirborneP2", true);
+			isAirborne = true;
 		} else {
+			if (isAirborne == true) {
+				source.PlayOneShot (landSound);
+			}
 			anim.SetBool ("AirborneP2", false);
+			isAirborne = false;
 		}
 
 
