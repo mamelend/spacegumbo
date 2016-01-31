@@ -3,8 +3,8 @@
 -nowarn:0169
 -out:'Temp/Assembly-CSharp.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll'
--r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll'
 -r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll'
+-r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll'
 -r:'/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll'
 -r:'/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll'
@@ -82,6 +82,8 @@
 'Assets/Scripts/Player1.cs'
 'Assets/Scripts/Player2.cs'
 'Assets/Scripts/attackTrigger.cs'
+'Assets/Scripts/attackTrigger2.cs'
 'Assets/Scripts/playerAttack.cs'
+'Assets/Scripts/playerAttack2.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Xml.Linq.dll'
