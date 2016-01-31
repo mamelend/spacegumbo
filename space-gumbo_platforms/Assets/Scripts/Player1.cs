@@ -7,7 +7,7 @@ public class Player1 : MonoBehaviour {
 
 
 
-	float moveSpeed = 6; 
+	public float moveSpeed = 6; 
 	public float jumpHeight = 4;
 	public float timeToJumpApex = .4f;
 	public float accelTimeAir = .2f; 
@@ -19,7 +19,7 @@ public class Player1 : MonoBehaviour {
 	float velocityXSmoothing;
 
 	private bool isHolding = false;
-	private int maPoints = 0;
+	public static int maPoints;
 	private bool isAirborne = false;
 
 	public AudioClip jumpSound;
@@ -33,6 +33,8 @@ public class Player1 : MonoBehaviour {
 
 	void Start () {
 		controller = GetComponent<Controller2D> ();
+
+		maPoints = 0;
 
 		gravity = -(2 * jumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		jumpVelocity = Mathf.Abs (gravity * timeToJumpApex);

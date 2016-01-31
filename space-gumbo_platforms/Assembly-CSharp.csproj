@@ -48,15 +48,18 @@
      <Compile Include="Assets\Scripts\Controller2D.cs" />
      <Compile Include="Assets\Scripts\Player1.cs" />
      <Compile Include="Assets\Scripts\Player2.cs" />
+     <Compile Include="Assets\Scripts\PlayerCounter1.cs" />
+     <Compile Include="Assets\Scripts\PlayerCounter2.cs" />
+     <Compile Include="Assets\Scripts\TimeyWimey.cs" />
      <Compile Include="Assets\Scripts\attackTrigger.cs" />
      <Compile Include="Assets\Scripts\attackTrigger2.cs" />
      <Compile Include="Assets\Scripts\playerAttack.cs" />
      <Compile Include="Assets\Scripts\playerAttack2.cs" />
- <Reference Include="UnityEngine.Networking">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
