@@ -18,6 +18,9 @@ public class Player2 : MonoBehaviour {
 	Vector3 velocity;
 	float velocityXSmoothing;
 
+	private bool isHolding = false;
+	private int maPoints = 0;
+
 	Animator anim;
 
 
@@ -67,5 +70,27 @@ public class Player2 : MonoBehaviour {
 
 
 		controller.Move (velocity * Time.deltaTime);
+	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		if (other.gameObject.CompareTag ("Animal") && isHolding==false) {
+			other.gameObject.SetActive (false);
+			isHolding = true;
+			//          Debug.Log ("P1 holding");
+		} else if (other.gameObject.CompareTag ("Goal1") && isHolding==true) {
+			maPoints++;
+			isHolding = false;
+			if (maPoints == 1) {
+				Debug.Log ("choked the chicken");
+			} else {
+				Debug.Log ("Choked " + maPoints + " chickens!!");
+			}
+		}
+
+		if (isHolding) {
+			Debug.Log ("holding");
+		} else {
+			Debug.Log ("got notihng");
+		}
 	}
 }
