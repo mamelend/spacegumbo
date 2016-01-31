@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AttackTrigger2 : MonoBehaviour {
+public class attackTrigger2 : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if(col.isTrigger != true && col.gameObject.name == "Player1")
+		{
+			col.SendMessageUpwards("Player 2 attacks Player 1");
+			Debug.Log("Collider hit something!");
+		}
 	}
 }

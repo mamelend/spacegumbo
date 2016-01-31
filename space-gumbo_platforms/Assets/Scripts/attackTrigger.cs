@@ -3,14 +3,13 @@ using System.Collections;
 
 public class attackTrigger : MonoBehaviour {
 
-//	public int dmg = 20;
-//
-//	void OnTriggerEnter2D(Collider2D)
-//	{
-//		if(collider.isTrigger != true && collider.CompareTag("Enemy"))
-//		{
-//			collider.SendMessageUpwards("Damage", dmg);
-//		}
-//	}
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if(col.isTrigger != true && col.gameObject.name == "Player2")
+		{
+			col.SendMessageUpwards("Player 1 attacks Player 2");
+			Debug.Log("Collider hit something!");
+		}
+	}
 
 }
