@@ -33,7 +33,7 @@ public class TimeyWimey : MonoBehaviour
 		TimeyTexty.text = Mathf.Round(timeLeft) + " seconds left!!!";
 		if(timeLeft < 0)
 		{
-			Application.LoadLevel("Opening");
+			Application.LoadLevel("Close");
 		}
 		Debug.Log (timeLeft);
 	}

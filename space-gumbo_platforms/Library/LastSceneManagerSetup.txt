@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/platforming mechanics.unity
+- path: Assets/Scenes/platformingmechanics.unity
   isLoaded: 1
   isActive: 1
